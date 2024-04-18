@@ -1,0 +1,74 @@
+<body class="bg-dark">
+<%- include('partials/logged-in-header') -%>
+<div class="container mb-5">
+  <div class="row justify-content-center mt-5" mb-5>
+    <h1 class="text-light m-5 d-flex justify-content-center text-uppercase"><%= post.songName%></h1>
+      <table class="table bg-danger h4 pt-5">
+        <thead>
+          <tr>
+            <th scope="col">Song Name</th>
+            <th scope="col">Band Name</th>
+            <th scope="col">Key</th>
+            <th scope="col">BPM</th>
+          </tr>
+        </thead>
+        <tbody class="h4">
+          <tr>
+            <!-- <th scope="row">1</th> -->
+            <td><%= post.songName%></td>
+            <td><%= post.bandName%></td>
+            <td><%= post.songKey%></td>
+            <td><%= post.BPM%></td>
+          </tr>
+          </tbody>
+      </table>
+      
+      <!-- <img class="img-fluid" src="<%= post.image%>" /> -->
+      <div class="row justify-content-between mt-5">
+        <form
+          class="col-3"
+          action="/post/likePost/<%= post.id %>?_method=PUT"
+          method="POST"
+        >
+          <button class="btn btn-primary fa fa-heart p-3" type="submit"></button>
+        </form >
+        
+        <%if(post.user == user.id){ %>
+        <!-- /added favs -->
+        <form
+            class="col-3"
+            action="/post/bookmarkPost/<%= post.id %>?_method=PUT"
+            method="POST"
+          >
+          <button class=" <%if(post.bookmarks.includes(user.id)){ %> bi bi-bookmark-fill<%} else { %> bi bi-bookmark <% }%>
+            btn btn-primary p-3" type="submit"></button>
+          </form>
+        
+        <!-- delete button -->
+          <form
+          action="/post/deletePost/<%= post.id %>?_method=DELETE"
+          method="POST"
+          class="col-2"
+        >
+          <button class="btn btn-primary fa fa-trash p-3" type="submit"></button>
+        </form>
+        <%}%>
+        
+      </div>
+      <h3 class="col-12 h4 text-light p-4">Likes: <%= post.likes %></h3>
+    </div>
+    <div class="col-3 mt-5">
+      <p><%= post.caption %></p>
+    </div>
+    <div class="col-6 mt-5 d-flex justify-content-between">
+      <a class="btn btn-primary text-dark" style="background-color: rgb(255, 234, 0)" href="/profile"><b>Add Another Song</b></a>
+      <a class="btn btn-primary text-dark" style="background-color: rgb(255, 234, 0)" href="/feed"><b>Return to Feed</b></a>
+    </div>
+  
+</div>
+<div class="m-5 p-5">
+
+</div>
+
+<%- include('partials/footer') -%>
+</body>

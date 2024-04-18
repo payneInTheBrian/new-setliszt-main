@@ -1,0 +1,19 @@
+
+
+@media screen {
+  #foot{
+   height: 2em;
+   background-color: #f1c40f;
+  }
+  .baby{
+    font-size: .25em;
+    
+  }
+}
+
+/* .coke {
+  background-image: url(images/drink.jpg);
+  background-size: cover;
+  color: red
+} */
+

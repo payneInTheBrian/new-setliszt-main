@@ -1,0 +1,72 @@
+ <body class="bg-dark">
+<%- include('partials/logged-in-header') -%>
+
+<div class="container card-container pb-5">
+    <div class="row mt-5  d-flex justify-content-center pb-5">
+    <h1 class='d-flex justify-content-center text-light m-5'>My SetLiszt</h1>
+    <table class="table bg-danger h3 text-warning border border-whit mb-5e">       
+    <thead>
+      <tr>
+        
+        <th scope="col">Song Name</th>
+        <th scope="col">Band Name</th>
+        <th scope="col">Key</th>
+        <th scope="col">BPM</th>
+      </tr>
+    </thead>
+
+
+    
+  
+</div>
+  <div class=" row-cols-1 row-cols-md ">
+    <% for(var i=0; i<posts.length; i++) {%>
+      <%if(posts[i].bookmarks.includes(user.id)) {%>
+       
+        <!-- <img src="<%= posts[i].image%>" class="card-img-top" alt="..."> -->
+        
+            
+        <tbody class="h3" >
+          <tr>
+            <!-- <th scope="row">1</th> -->
+            
+            <!-- <td class="draggable" draggable="true"><button class="justify-center fa fa-arrow-up"></button><button class="justify-center fa fa-arrow-down"></button><%= posts[i].songName%></td> -->
+            <td class="draggable" draggable="true"><form
+              class=""
+              action="/post/bookmarkUp/<%= posts.id %>?_method=PUT"
+              method="POST"
+            >
+             <!--  <button class="btn btn-primary fa fa-arrow-up p-3" type="submit"></button> -->
+            </form ><%= posts[i].songName%></td>
+            <td class="draggable" draggable="true"><%= posts[i].bandName%></td>
+            <td class="draggable" draggable="true"><%= posts[i].songKey%></td>
+            <td class="draggable" draggable="true"><%= posts[i].BPM%></td>
+          </tr>
+         
+          
+        </tbody>
+      
+   
+            
+          <!-- <h5 class="card-title"><%= posts[i].songName%></h5>
+          <p class="card-text"><%= posts[i].bandName%></p>
+          <a href="/post/<%= posts[i]._id%>" class="btn btn-primary">View Recipe</a> -->
+          <!-- <a href="/post/<%= posts[i]._id%>" class="btn btn-primary">Edit</a> -->
+
+    <% } %>
+    <% } %>
+    </table>
+  </div>
+  
+  
+
+  
+</div>
+<div>
+  
+</div>
+<div class="m-5 p-5">
+
+</div>
+</body>
+<%- include('partials/footerSm') -%>

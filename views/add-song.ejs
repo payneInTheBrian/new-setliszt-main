@@ -1,0 +1,67 @@
+<body class="bg-dark mb-5">
+<%- include('partials/logged-in-header') -%>
+<div class="container mb-5">
+  <div class="row mt-5 d-flex justify-content-center mb-5">
+      <div class="col-6 mb-5">
+         <!--  <div>
+              <p><strong>User Name</strong>: <%= user.userName %></p>
+              <p><strong>Email</strong>: <%= user.email %></p>
+              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+          </div> -->
+          <div class="mt-5 justify-content-center">
+            <h1 class="d-flex justify-content-center text-light m-5">Add Song</h1>
+            <form action="/post/createPost" enctype="multipart/form-data " method="POST">
+              <div class="mb-3">
+                  <label for="songName" class="form-label text-light h4">Song Name</label>
+                  <input type="text" class="form-control text-dark bg-warning " id="songName" name="songName" placeholder="How You Remind Me">
+              </div>
+              <!-- added -->
+              <div class="mb-3">
+                <label for="bandName" class="form-label text-light h4">Band Name</label>
+                <input type="text" class="form-control text-dark bg-warning" id="bandName" name="bandName" placeholder="Nickleback">
+            </div>
+            <div class="mb-3">
+              <label for="songKey" class="form-label text-light h4">Song Key</label>
+              <input type="text" class="form-control text-dark bg-warning" id="songKey" name="songKey" placeholder="Q#">
+          </div>
+          <div class="mb-3">
+            <label for="BPM" class="form-label text-light h4">BPM</label>
+            <input type="text" class="form-control text-dark bg-warning" id="BPM" name="BPM" placeholder="I WANT TO GO FAST">
+        </div >
+        <!-- <div class="mb-3">
+          <label for="tab" class="form-label">Tab</label>
+          <input type="text" class="form-control" id="tab" name="tab">
+      </div> -->
+      <!-- <div class="mb-3">
+        <label for="title" class="form-label">Audio/Video</label>
+        <input type="text" class="form-control" id="title" name="title">
+    </div> -->
+              <!-- <div class="mb-3">
+                <label for="caption" class="form-label">Caption</label>
+                <textarea class="form-control" id="caption" name="caption"></textarea>
+              </div> -->
+              <!-- <div class="mb-3">
+                <label for="imgUpload" class="form-label">Image</label>
+                <input type="file" class="form-control" id="imageUpload" name="file">
+              </div> -->
+             
+              <button type="submit" class="btn btn-primary text-dark" value="Upload" ><b>Submit</b></button>
+            
+            </form>
+          </div>
+      </div>
+      <!-- <div class="col-6">
+        <ul class="row list-unstyled">
+
+         
+        </ul> -->
+        <!-- <div class="row justify-content-center mt-5">
+          <a class="btn btn-primary d-flex justify-content-center" href="/feed">Return to Feed</a>
+        </div>  --> 
+      </div>  
+    </div>
+    <div class="m-5 p-5">
+
+    </div>
+  
+<%- include('partials/footer') -%>
